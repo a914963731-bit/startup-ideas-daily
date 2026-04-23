@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+pushed_log.json
+ecommerce_data.json
+test_push.py
+.claude/
+TEMP/
