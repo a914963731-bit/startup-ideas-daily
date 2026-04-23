@@ -2,9 +2,8 @@ name: Daily Startup Ideas Push
 
 on:
   schedule:
-    # 每天北京时间12点 = UTC 4点
     - cron: '0 4 * * *'
-  workflow_dispatch:  # 手动触发按钮
+  workflow_dispatch:
 
 jobs:
   push-ideas:
@@ -22,12 +21,9 @@ jobs:
       - name: Run script
         env:
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
-          # GitHub Actions在国外服务器，不需要代理访问国外网站
-          # 但百度热搜等国内API可能需要代理，如果失败会自动跳过
         run: python ecommerce_daily_push.py
 
       - name: Upload pushed log
-        # 保存推送记录，避免重复推送
         if: always()
         uses: actions/upload-artifact@v4
         with:
