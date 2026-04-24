@@ -2,8 +2,10 @@ name: Daily Startup Ideas Push
 
 on:
   schedule:
-    - cron: '25 6 24 4 *'  # 测试：北京时间 14:25 触发一次
+    - cron: '0 4 * * *'  # GitHub 内部调度（可能不稳定）
   workflow_dispatch:
+  repository_dispatch:
+    types: [daily-push]  # 外部服务触发（更可靠）
 
 jobs:
   push-ideas:
