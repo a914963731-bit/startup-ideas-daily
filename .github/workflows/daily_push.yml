@@ -2,7 +2,7 @@ name: Daily Startup Ideas Push
 
 on:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '25 6 24 4 *'  # 测试：北京时间 14:25 触发一次
   workflow_dispatch:
 
 jobs:
